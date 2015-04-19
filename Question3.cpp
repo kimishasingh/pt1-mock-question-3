@@ -43,13 +43,48 @@ bool operator >(Fraction one, Fraction two)
 Fraction Fraction::add(int num, Fraction frac)
 {
 	Fraction ans = frac;
-	ans.num = num * frac.denom;
+	ans.num = num * frac.denom + frac.num;
 	return ans;
 }
 
 Fraction Fraction::add(Fraction frac, int num)
 {
 	Fraction ans = frac;
-	ans.num = num * frac.denom;
+	ans.num = num * frac.denom + frac.num;
 	return ans;
+}
+
+int main()
+{
+	Fraction a(1, 2), b(9, 10);
+
+	if (a > b)
+	{
+		a.print();
+		cout << " is greater than ";
+		b.print();
+	}
+	else
+	{
+		b.print();
+		cout << " is greater than ";
+		a.print();
+	}
+	cout << endl;
+	
+	cout << "1 + ";
+	a.print();
+	Fraction ans = a.add(1, a);
+	cout << " = ";
+	ans.print();
+	cout << endl;
+
+	b.print();
+	cout << " + 2 = ";
+	ans = b.add(b, 2);
+	ans.print();
+	cout << endl;
+
+	system("pause");
+	return 0;	
 }
