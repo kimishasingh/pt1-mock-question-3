@@ -26,6 +26,8 @@ public:
 	void print() { cout << num << "/" << denom; };
 	
 	friend bool operator > (Fraction one, Fraction two);
+	Fraction add(int num, Fraction frac);
+	Fraction add(Fraction frac, int num);
 };
 
 bool operator >(Fraction one, Fraction two)
@@ -38,3 +40,16 @@ bool operator >(Fraction one, Fraction two)
 		return false;
 }
 
+Fraction Fraction::add(int num, Fraction frac)
+{
+	Fraction ans = frac;
+	ans.num = num * frac.denom;
+	return ans;
+}
+
+Fraction Fraction::add(Fraction frac, int num)
+{
+	Fraction ans = frac;
+	ans.num = num * frac.denom;
+	return ans;
+}
